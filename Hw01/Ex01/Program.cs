@@ -6,9 +6,9 @@ namespace Ex01
     {
         static void Main(string[] args)
         {
-            Console.Writeline("Enter your name:");
-            string name = Console.Readline();
-            Console.Writeline($"Hello, {name}!");
+            Console.WriteLine("Enter your name:");
+            string name = Console.ReadLine();
+            Console.WriteLine($"Hello, {name}!");
         }
     }
 }

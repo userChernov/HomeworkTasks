@@ -22,11 +22,7 @@ namespace Ex05
         public static void Main(string[] args)
         {
             Console.WriteLine($"Значенте переменной b = {b}, а значение переменной s = {s}!");
-            Console.Write("Значение переменной b = ");
-            Console.Write(b);
-            Console.Write(", а значение переменной s = ");
-            Console.Write(s);
-            Console.WriteLine("!");
+
         }
     }
 }

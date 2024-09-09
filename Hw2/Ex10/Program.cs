@@ -31,9 +31,9 @@ namespace Ex10
      * ==================================================================================================
      */
 
-    public class program
+    public class Program
     {
-        public static void main(string[] Args)
+        public static void Main(string[] Args)
         {
             /* Добавьте свой код ниже */
         }

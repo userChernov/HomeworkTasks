@@ -18,7 +18,7 @@ namespace Ex04
         {
             int a = 17;
             int b = 99;
-            int x = 100 - a - b;
+            x = 100 - a - b;
             Console.WriteLine(a + b + x);
         }
     }

@@ -43,12 +43,12 @@ namespace Ex11
 
     public class Dog
     {
-        public Human owner;
+        public string owner;
     }
 
     public class Cat
     {
-        public Human owner;
+        public string owner;
     }
 
     public class Human

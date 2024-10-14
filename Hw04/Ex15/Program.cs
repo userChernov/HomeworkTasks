@@ -19,12 +19,16 @@ namespace Ex15
        public static void Main(string[] args)
         {
             /* Добавьте свой код ниже */
-            Console.Write("Введите первое число: ");
-            int firstNum = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Введите второе число: ");
-            int secondNum = Convert.ToInt32(Console.ReadLine());
             
-            Console.WriteLine($"Самое маленькое число: {GetMinimum(firstNum, secondNum)}");
+            for (int i = 0; i < 3; i++)
+            {
+                Random rand = new Random();
+
+                int firstNum = rand.Next();
+                int secondNum = rand.Next();
+                
+                Console.WriteLine($"Самое маленькое число: {GetMinimum(firstNum, secondNum)}");
+            }
         }
 
         public static int GetMinimum(int a, int b)

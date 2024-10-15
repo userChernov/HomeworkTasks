@@ -24,12 +24,16 @@ namespace Ex18
             {
                 Random rand = new Random();
 
-                int firstNum = rand.Next();
-                int secondNum = rand.Next();
-                int thirdNum = rand.Next();
-                int fourthNum = rand.Next();
+                int firstNum = rand.Next(1, 100);
+                Console.WriteLine(firstNum);
+                int secondNum = rand.Next(1, 100);
+                Console.WriteLine(secondNum);
+                int thirdNum = rand.Next(1, 100);
+                Console.WriteLine(thirdNum);
+                int fourthNum = rand.Next(1, 100);
+                Console.WriteLine(fourthNum);
                 
-                Console.WriteLine($"Самое большое число: {GetMinimum(firstNum, secondNum, thirdNum, fourthNum)}");
+                Console.WriteLine($"Самое маленькое число: {GetMinimum(firstNum, secondNum, thirdNum, fourthNum)}");
             }
         }
 
@@ -37,16 +41,9 @@ namespace Ex18
         // запутался!
         public static int GetMinimum(int a, int b, int c, int d)
         {
-            if (a < b)
-            {
-                if (a < c && a < d) return a;
-                else if (d < a && d < c) return d;
-                else return c;
-            }
-            else if (b < a)
-            {
+            int[] numbers = [a, b, c, d];
+            return numbers.Min();
 
-            }
         }
     }
 }

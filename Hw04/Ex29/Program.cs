@@ -24,10 +24,13 @@ namespace Ex29
         {
             string input = "";
 
-            while (input != "end")
+            while (true)
             {
                 input = Console.ReadLine();
-                if (input != "end") Console.WriteLine(input);
+
+                if (input == "end") break; 
+
+                Console.WriteLine(input);
             }
         }
 

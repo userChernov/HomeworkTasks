@@ -27,7 +27,7 @@ namespace Ex06
         public string name;
         public int age;
         //TODO Переименовать переменную на нормальную
-        public string poroda;
+        public string breed;
         public string eyeColor;
         public string ownerName;
         public int ownerAge;
@@ -41,32 +41,32 @@ namespace Ex06
             this.name = name;
             this.age = age;
         }
-        public Cat(string name, int age, string poroda)
+        public Cat(string name, int age, string breed)
         {
             this.name = name;
             this.age = age;
-            this.poroda = poroda;
+            this.breed = breed;
         }
-        public Cat(string name, int age, string poroda, string eyeColor)
+        public Cat(string name, int age, string breed, string eyeColor)
         {
             this.name = name;
             this.age = age;
-            this.poroda = poroda;
+            this.breed = breed;
             this.eyeColor = eyeColor;
         }
-        public Cat(string name, int age, string poroda, string eyeColor, string ownerName)
+        public Cat(string name, int age, string breed, string eyeColor, string ownerName)
         {
             this.name = name;
             this.age = age;
-            this.poroda = poroda;
+            this.breed = breed;
             this.eyeColor = eyeColor;
             this.ownerName = ownerName;
         }
-        public Cat(string name, int age, string poroda, string eyeColor, string ownerName, int ownerAge)
+        public Cat(string name, int age, string breed, string eyeColor, string ownerName, int ownerAge)
         {
             this.name = name;
             this.age = age;
-            this.poroda = poroda;
+            this.breed = breed;
             this.eyeColor = eyeColor;
             this.ownerName = ownerName;
             this.ownerAge = ownerAge;

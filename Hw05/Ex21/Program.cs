@@ -37,12 +37,14 @@ namespace Ex21
 
         public override string ToString()
         {
-            return $"Имя Возраст Профессия ";
+            return $"Имя: {Name}\nВозраст: {Age}\nПрофессия: {Profession}";
         }
 
 
         public static void Main(string[] args)
         {
+            Human one = new Human("Роман");
+            Console.WriteLine(one);
         }
         /* Добавьте свой код ниже */
     }

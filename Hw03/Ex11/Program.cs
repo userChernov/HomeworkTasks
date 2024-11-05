@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace Ex11
 {
     /*
-     +* Создайте классы Dog и Cat в том же файле и том же namespace, что и класс Program. 
-     +* Создайте класс Human в том же файле и том же namespace, что и класс Program, а также объявите в нём строковую переменную name. 
-     +* Измените классы Cat и Dog таким образом, чтобы у них появилось поле owner, подумайте, какого типа оно должно быть. 
+     +*+ Создайте классы Dog и Cat в том же файле и том же namespace, что и класс Program. 
+     +*+ Создайте класс Human в том же файле и том же namespace, что и класс Program, а также объявите в нём строковую переменную name. 
+     +*+ Измените классы Cat и Dog таким образом, чтобы у них появилось поле owner, подумайте, какого типа оно должно быть. 
      +* Внутри метода Main() класса Program создайте два экземпляра класса Human, присвойте их переменным catOwner 
      +* и dogOwner, и по одному экземпляру классов Cat и Dog, присвойте их переменным с произвольными именами. 
      +* Присвойте экземпляру catOwner имя Вася, а экземпляру dogOwner - имя Марго. Сделайте так, чтобы у каждого 
@@ -29,26 +29,26 @@ namespace Ex11
             Cat cat1 = new Cat();
             Dog dog1 = new Dog();
 
+            cat1.owner = catOwner;
+            dog1.owner = dogOwner;
+            
             catOwner.name = "Вася";
             dogOwner.name = "Марго";
 
-            cat1.owner = catOwner.name;
-            dog1.owner = dogOwner.name;
-
-            Console.WriteLine($"Владельца кота зовут: {cat1.owner}");
-            Console.WriteLine($"Владельца собаки зовут: {dog1.owner}");
+            Console.WriteLine($"Владельца кота зовут: {cat1.owner.name}");
+            Console.WriteLine($"Владельца собаки зовут: {dog1.owner.name}");
         }
     }
     /* Добавьте свой код ниже */
 
     public class Dog
     {
-        public string owner;
+        public Human owner;
     }
 
     public class Cat
     {
-        public string owner;
+        public Human owner;
     }
 
     public class Human

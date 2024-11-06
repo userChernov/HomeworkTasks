@@ -16,6 +16,11 @@ namespace Ex26
         /* Добавьте свой код ниже */
         public static int deleteCount = 0;
 
+        ~Program()
+        {
+            //deleteCount++;
+        }
+
         public static void Main(string[] args)
         {
             Random rand = new Random();
@@ -25,6 +30,7 @@ namespace Ex26
 
                 Program test = new Program();
 
+                
                 test = null;
                 deleteCount ++;
             }

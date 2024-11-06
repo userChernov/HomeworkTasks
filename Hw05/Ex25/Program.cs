@@ -21,9 +21,9 @@ namespace Ex25
             Cat cat2 = new Cat();
 
             /* Добавьте свой код ниже */
-            cat1 = CatNullifier();
-            cat2 = CatNullifier();
-
+            CatNullifier(cat1);
+            CatNullifier(cat2);
+ 
             Console.WriteLine(cat1);
             Console.WriteLine(cat1 == null);
             Console.WriteLine(cat2);
@@ -31,9 +31,9 @@ namespace Ex25
         }
         /* Добавьте свой код ниже */
 
-        public static Cat CatNullifier()
+        public static void CatNullifier(Cat cat)
         {
-            return null;
+            cat = null;
         }
 
     }

@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 namespace Ex14
 {
     /*    
-     * Реализуйте класс Cat и класс Human. Для класса Cat объявите два поля класса:
-     *      1) Имя.
-     *      2) Владелец.
-     * Создайте конструктор для класса Cat, который принимает имя в качестве параметра, кроме того
+     *+ Реализуйте класс Cat и класс Human. Для класса Cat объявите два поля класса:
+     *+      1) Имя.
+     *+      2) Владелец.
+     *+ Создайте конструктор для класса Cat, который принимает имя в качестве параметра, кроме того
      * внутри конструктора создайте и присвойте соответствующему полю класса Cat новый экземпляр
      * класса Human.
      * Для класса Human объявите три поля класса:
@@ -46,7 +46,7 @@ namespace Ex14
         public Cat(string name)
         {
             this.name = name;
-            this.owner = new Human(name);
+            this.owner = new Human(this);
           
         }
 
@@ -61,13 +61,12 @@ namespace Ex14
         /* Добавьте свой код ниже */
         public string name;
         public string address;
-
-        // КАК Я ПОНЯЛ ИЗ ЗАДАНИЯ, PET должен принимать в себя эклемпляр класса Cat(). Не смог реализовать это
-        public string pet;
+        public Cat pet;
+        
         public Random rand = new Random();
 
 
-        public Human(string pet)
+        public Human(Cat pet)
         {
             this.name = "Anton";
             this.address = Convert.ToString(rand.Next());

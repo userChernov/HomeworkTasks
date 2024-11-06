@@ -18,15 +18,25 @@ namespace Ex09
     {
         /* Добавьте свой код ниже */
         public int id;
-        public int count = 0;
+        public static int count = 0;
         private Random rand = new Random();
 
         public Program()
         {
             this.id = rand.Next();
-            this.count ++;
+            count ++;
+            Console.WriteLine(count);
         }
 
-        public static void Main(string[] args) { }
+        public static void Main(string[] args)
+        {
+            Program p1 = new Program();
+            Program p2 = new Program();
+            Program p3 = new Program();
+            Program p4 = new Program();
+            Program p5 = new Program();
+
+            Console.WriteLine($"Итого {count}");
+        }
     }
 }

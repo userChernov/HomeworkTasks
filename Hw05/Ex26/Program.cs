@@ -18,24 +18,24 @@ namespace Ex26
 
         ~Program()
         {
-            //deleteCount++;
+            deleteCount++;
+            Console.WriteLine(deleteCount);
         }
 
         public static void Main(string[] args)
         {
-            Random rand = new Random();
+            //Random rand = new Random();
 
-            for (int i = 0; i < rand.Next(10); i++)
+            for (int i = 0; i < 10; i++)
             {
 
                 Program test = new Program();
-
                 
-                test = null;
-                deleteCount ++;
             }
             
-            Console.WriteLine(deleteCount);
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            Console.WriteLine($"Итого: {deleteCount}");
         }
     }
 }

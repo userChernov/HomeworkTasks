@@ -19,12 +19,18 @@ namespace Ex27
         public static void Main(string[] args)
         {
             Random rand = new Random();
-            rand.Next(100);
 
-            int id = Convert.ToInt32(rand.Next(100));
-            Cat cat1 = new Cat(id);
+            
+            for (int i = 0; i < 10; i++)
+            {
+                Cat cat = new Cat(i);
+                Console.WriteLine($"Привет привет котику с id: {cat.id}");
+            }
 
-            Console.WriteLine($"Привет привет котику с id: {cat1.id}");
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+
+
         }
     }
 
@@ -36,11 +42,6 @@ namespace Ex27
         public Cat(int id)
         {
             this.id = id;
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
         }
 
         ~Cat()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,8 +21,42 @@ namespace Ex28
     public class Bird
     {
         /* Добавьте свой код ниже */
+        public string Name { set; get; } = "";
+        public int Age  { set; get; } = 100;
+        public int Speed { set; get; } = 100;
+
         public static void Main(string[] args)
         {
+            Console.Write("Enter Name: ");
+
+            string name = Console.ReadLine();
+
+            Bird bird1 = new Bird();
+
+            bird1.ChangeObject(name);
+
+            Console.WriteLine(bird1);
+        }
+
+        public void ChangeObject(string name)
+        {
+            this.Name = name;
+            
+            if (char.IsUpper(name[0]))
+                this.Age = 50;
+            
+            if (char.IsUpper(name[name.Length - 1]))
+                this.Speed = 10;
+
+            if (char.IsNumber(name[name.Length - 1]))
+                this.Age = this.Age * 2;
+        }
+
+        // qwerq
+
+        public override string ToString()
+        {
+            return $"Name = {this.Name} : Age = {this.Age} : Speed = {this.Speed}";
         }
     }
 }

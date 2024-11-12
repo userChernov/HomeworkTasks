@@ -20,10 +20,10 @@ namespace Ex33
     /* Добавьте свой код ниже */
     enum CarModels
     {
-        skodaOctavia,
-        fordMondeo,
-        volvoXC60,
-        kiaOptima
+        SkodaOctavia,
+        FordMondeo,
+        VolvoXC60,
+        KiaOptima
     }
 
 

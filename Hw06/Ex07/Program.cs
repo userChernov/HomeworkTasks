@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,25 +35,39 @@ namespace l6t7
 
     public struct Circle
     {
-        public int x = 2;
-        public int y = 2;
-        public int r = 1;
+        public int x;
+        public int y;
+        public int r;
         public string color;
 
         public Circle(int x, int y)
         {
             this.x = x;
             this.y = y;
+
+            this.r = 1;
+            this.color = "cyan";
         }
 
         public Circle(int r)
         {
+            this.x = 2;
+            this.y = 2;
+
             if (r > 0)
                 this.r = r;
+
+            this.color = "cyan";
+            
         }
 
         public Circle(string color)
         {
+            this.x = 2;
+            this.y = 2;
+
+            this.r = 1;
+
             this.color = color;
         }
 

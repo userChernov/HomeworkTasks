@@ -16,8 +16,7 @@ namespace l6t10
         public static void Main(string[] args)
         {
             string s = Console.ReadLine();
-            int a;
-            bool isInt = Int32.TryParse(s, out a);
+            bool isInt = Int32.TryParse(s, out int a);
 
             if (isInt)
                 Console.WriteLine(a);

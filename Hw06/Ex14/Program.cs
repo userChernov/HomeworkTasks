@@ -17,38 +17,61 @@ namespace l6t14
         public static void Main(string[] args)
         {
             /* Добавьте свой код ниже */
-            int min = int.MaxValue;
+
+            //Console.Clear();
+
+            int temp;
             int minIndex = -1;
 
             int[] myArray = new int[10];
-            int[] newArray = new int[10];
-
             for (int i = 0; i < myArray.Length; i++)
-            {
                 myArray[i] = int.Parse(Console.ReadLine());
+            
+
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                minIndex = GetMinIndex(i, myArray);
+
+                temp = myArray[i];
+                myArray[i] = myArray[minIndex];
+                myArray[minIndex] = temp;
             }
 
             for (int i = 0; i < myArray.Length; i++)
             {
-                for (int j = 0; j < myArray.Length; j++)       
-                {
-                    if (myArray[j] < min)
-                    {
-                        min = myArray[j];
-                        minIndex = j;
-                    }
-                }
-                newArray[i] = min;
-
-                myArray[minIndex] = int.MaxValue;
-                min = int.MaxValue;
+                Console.Write($"{myArray[i]}, ");
             }
 
-            for (int i = 0; i < newArray.Length; i++)
+        }
+
+        public static int GetMinIndex(int index, int[] array)
+        {
+            //Console.WriteLine("=============STARTED GETMININDEX=========");
+
+            //Console.WriteLine("array:");
+            // for (int i = 0; i < array.Length; i++)
+            // {
+            //     Console.Write($"{array[i]}, ");
+            // }
+            //Console.WriteLine();
+
+            int minIndex = -1;
+            int min = int.MaxValue;
+
+            for (int i = index; i < array.Length; i++)
             {
-                Console.Write($"{newArray[i]}, ");
+                if (array[i] < min)
+                {
+                    minIndex = i;
+                    min = array[i];
+                }
             }
 
+            // Console.WriteLine($"minIndex = {minIndex}");
+            // Console.WriteLine($"minValue = {array[minIndex]}");
+
+            // Console.WriteLine("=============FINISH GETMININDEX=========");
+            return minIndex;
         }
     }
 }

@@ -20,5 +20,20 @@ namespace l6t15
             Console.WriteLine(GetMaxValue(new int[] { 0 }));
         }
         /* Добавьте свой код ниже */
+
+        public static int GetMaxValue(int[] array)
+        {
+            int maxValue = int.MinValue;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] > maxValue)
+                    maxValue = array[i];
+            }
+
+            return maxValue;
+        }
     }
+
+    
 }

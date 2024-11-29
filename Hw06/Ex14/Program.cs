@@ -18,10 +18,8 @@ namespace l6t14
         {
             /* Добавьте свой код ниже */
 
-            //Console.Clear();
-
             int temp;
-            int minIndex = -1;
+            int minIndex;
 
             int[] myArray = new int[10];
             for (int i = 0; i < myArray.Length; i++)
@@ -41,24 +39,14 @@ namespace l6t14
             {
                 Console.Write($"{myArray[i]}, ");
             }
-
         }
 
         public static int GetMinIndex(int index, int[] array)
         {
-            //Console.WriteLine("=============STARTED GETMININDEX=========");
+            int minIndex = index;
+            int min = array[index];
 
-            //Console.WriteLine("array:");
-            // for (int i = 0; i < array.Length; i++)
-            // {
-            //     Console.Write($"{array[i]}, ");
-            // }
-            //Console.WriteLine();
-
-            int minIndex = -1;
-            int min = int.MaxValue;
-
-            for (int i = index; i < array.Length; i++)
+            for (int i = index + 1; i < array.Length; i++)
             {
                 if (array[i] < min)
                 {
@@ -67,10 +55,6 @@ namespace l6t14
                 }
             }
 
-            // Console.WriteLine($"minIndex = {minIndex}");
-            // Console.WriteLine($"minValue = {array[minIndex]}");
-
-            // Console.WriteLine("=============FINISH GETMININDEX=========");
             return minIndex;
         }
     }

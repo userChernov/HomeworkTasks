@@ -18,7 +18,7 @@ namespace Ex33
         }
     }
     /* Добавьте свой код ниже */
-    enum CarModels
+    public enum CarModels
     {
         SkodaOctavia,
         FordMondeo,

@@ -19,11 +19,10 @@ namespace Ex15
        public static void Main(string[] args)
         {
             /* Добавьте свой код ниже */
+            Random rand = new Random();
             
             for (int i = 0; i < 3; i++)
             {
-                Random rand = new Random();
-
                 int firstNum = rand.Next();
                 int secondNum = rand.Next();
                 

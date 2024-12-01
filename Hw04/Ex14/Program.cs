@@ -23,10 +23,11 @@ namespace Ex14
             /* Добавьте свой код ниже */
             int num = 0;
             bool a = true;
+            Random rand = new Random();
+
             while (a)
             {
-                Random rand = new Random();
-                num = Convert.ToInt32(rand);
+                num = Convert.ToInt32(rand.Next());
 
                 if (num > 0 && num > 100 && (float)num % 10 == 0)
                 {

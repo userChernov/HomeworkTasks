@@ -23,23 +23,23 @@ namespace Ex11
     {
         public static void Main(string[] args)
         {
-            float year = Convert.ToInt32(Console.ReadLine());
+            int year = Convert.ToInt32(Console.ReadLine());
 
             CheckYear(year);
             
         }
 
-        public static void CheckYear(float year)
+        public static void CheckYear(int year)
         {
-            if ((year % 4 == 0) && (year % 400 == 0 || (year % 100 > 0 || year % 100 < 0)))
-            {
-                Console.WriteLine($"Год {year} является високосным");
-            }
-            else
-            {
+            if (year % 4 != 0)
                 Console.WriteLine($"Год {year} является НЕ високосным");
-                
-            }
+            else if (year % 100 != 0)
+                Console.WriteLine($"Год {year} является високосным");
+            else if (year % 400 != 0)
+                Console.WriteLine($"Год {year} является НЕ високосным");
+            else
+                Console.WriteLine($"Год {year} является високосным");
+
         }
 
         /* Добавьте свой код ниже */

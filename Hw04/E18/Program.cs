@@ -19,11 +19,10 @@ namespace Ex18
         public static void Main(string[] args)
         {
             /* Добавьте свой код ниже */
+            Random rand = new Random();
 
             for (int i = 0; i < 3; i++)
             {
-                Random rand = new Random();
-
                 int firstNum = rand.Next(1, 100);
                 Console.WriteLine(firstNum);
                 int secondNum = rand.Next(1, 100);
@@ -41,7 +40,7 @@ namespace Ex18
         // запутался!
         public static int GetMinimum(int a, int b, int c, int d)
         {
-            int[] numbers = [a, b, c, d];
+            int[] numbers = new int[] {a, b, c, d};
             return numbers.Min();
 
         }

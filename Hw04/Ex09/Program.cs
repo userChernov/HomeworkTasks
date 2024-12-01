@@ -31,7 +31,7 @@ namespace Ex09
 
         public static void CheckInterval(int a)
         {
-            if (a > 30 && a <= 100)
+            if (a >= 30 && a <= 100)
                 Console.WriteLine($"Число {a} содержится в интервале.");
             else 
                 Console.WriteLine($"Число {a} не содержится в интервале.");

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,12 @@ namespace l6t19
             string s1 = "Красивая строка с1223 123";
             string s2 = "Один два три";
             string s3 = "Арбу3";
+
+
+            WordSorter(s1);
+            WordSorter(s2);
+            WordSorter(s3);
+
             Console.WriteLine(WordSorter(s1));
             Console.WriteLine(WordSorter(s2));
             Console.WriteLine(WordSorter(s3));
@@ -29,22 +36,44 @@ namespace l6t19
         public static string WordSorter(string word)
         {
             /* Добавьте свой код ниже */
-            string sort;
+            string[] arrayString = word.Split(' ');
+            string sortString = "";
             bool needSort = true;
 
-            for (int i = 0; i < word.Length; i++)
+            string buffer = "";
+
+            for (int i = 0; i < arrayString.Length; i++)
             {
-                if (char.IsDigit(word[i]))
+                buffer = arrayString[i];
+
+                for (int k = 0; k< buffer.Length; k++)
                 {
-                    needSort = false;
-                    break;
+                    if (buffer[k] >= 'А' && buffer[k] <= 'я' || buffer[k] == 'ё' || buffer[k] =='Ё')
+                    {
+                    }
+                    else 
+                        needSort = false;
                 }
+
+                char[] arrayChar = buffer.ToArray();
+
+                if (needSort)
+                {
+                    Array.Sort(arrayChar);
+                    buffer = "";
+
+                    for (int l = 0; l < arrayChar.Length; l++)
+                    {
+                       buffer += arrayChar[l];
+                    }
+                }
+
+                sortString += buffer;
+                sortString += " ";
+
             }
 
-            if (!needSort) 
-                return word;
-
-            return null;
+            return sortString;
             
         }
     }

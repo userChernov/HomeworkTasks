@@ -27,6 +27,28 @@ namespace l6t23
         {
             ArrayList arr = new ArrayList() { "ч", 1, 2, 3, "q", true, false, "й", 1.11, 2.2, 1d, 2d, 17, 17.0, 123, "int32", false, true };
             /* Добавьте свой код ниже */
+
+            List<int> intList = new List<int>();
+            List<string> stringList = new List<string>();
+            List<double> doubleList = new List<double>();
+            List<bool> boolList = new List<bool>();
+
+            foreach (object obj in arr)
+            {
+                if (obj is int)
+                    intList.Add(Convert.ToInt32(obj));
+                else if (obj is string)
+                    stringList.Add(Convert.ToString(obj));
+                else if (obj is double)
+                    doubleList.Add(Convert.ToDouble(obj));            
+                else if (obj is bool)
+                    boolList.Add(Convert.ToBoolean(obj));
+            }
+
+            Console.WriteLine($"Список целых чисел включает в себя {intList.Count} элементов.");
+            Console.WriteLine($"Список строк включает в себя {stringList.Count} элементов.");
+            Console.WriteLine($"Список дробных чисел включает в себя {doubleList.Count} элементов.");
+            Console.WriteLine($"Список логических значений включает в себя {boolList.Count} элементов.");
         }
     }
 }

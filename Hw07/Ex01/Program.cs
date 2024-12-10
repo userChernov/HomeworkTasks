@@ -24,6 +24,12 @@ namespace l7t1
             ArrayList arr = new ArrayList();
             /* Добавьте свой код ниже */
 
+            arr.Add(Program.a);
+            arr.Add(Program.b);
+            arr.Add(Program.c);
+            arr.Add(Program.d);
+            arr.Add(Program.e);
+
             for (int i = 0; i < arr.Count; i++)
             {
                 Console.WriteLine(arr[i]);

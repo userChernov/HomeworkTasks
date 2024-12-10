@@ -23,7 +23,6 @@ namespace l6t19
             string s2 = "Один два три";
             string s3 = "Арбу3";
 
-
             WordSorter(s1);
             WordSorter(s2);
             WordSorter(s3);

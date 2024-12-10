@@ -24,8 +24,39 @@ namespace l6t6
         {
             int r;
 
+            int[] myArray = MakeIntArray();
+            int a = 100;
+            MakeCustomIntArray(myArray, a, out r);
+
             Console.WriteLine(r);
         }
         /* Добавьте свой код ниже */
+
+        public static int[] MakeIntArray()
+        {
+            Random rand = new Random();
+            int N = rand.Next(100);
+
+            int[] intArray = new int[N];
+
+            for (int i = 0; i < N; i++)
+                intArray[i] = rand.Next(1, 101);
+
+            return intArray;
+        }
+
+        public static void MakeCustomIntArray(int[] array, int A, out int r)
+        {
+            r = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] <= A)
+                {
+                    Console.WriteLine(array[i]);
+                    r++;
+                }
+            }
+            Console.WriteLine();
+        }
     }
 }

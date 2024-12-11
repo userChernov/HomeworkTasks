@@ -16,21 +16,38 @@ namespace l7t3
 
     public class Program
     {
-        public static void Main(string[] args)
+        //public static void Main(string[] args)
+        public static void Main()
         {
             /* Добавьте свой код ниже */
+            string[] arrs = new string[] { "13,456", "23,01", "22,2342",  "1,000001"};
+
+            ArrayList arr = new ArrayList();
+            arr = SmartCutter(arrs);
+
+            for (int i = 0; i < arr.Count; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
+
         }
 
         public static ArrayList SmartCutter(string[] array)
         {
+            int dotIndex;
+            string symbol;
+            string value;
             ArrayList returnArray = new ArrayList();
             
             for (int i = 0; i < array.Length; i++)
             {
-                
+                symbol = array[i];
+                dotIndex = array[i].IndexOf(',');
+                if (symbol.Length - dotIndex <= 4)
+                      returnArray.Add(double.Parse(array[i]));
             }
 
-            return null;
+            return returnArray;
         }
     }
 }

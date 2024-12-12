@@ -20,32 +20,22 @@ namespace l7t5
         {
             /* Добавьте свой код ниже */
 
-            Cat cat1 = new Cat();
+            for (int i = 0; i < 10; i++)
+            {
+                Cat cat = new Cat();
+                Cat.allCats.Add(cat);
+            }
 
-            Cat.allCats.Add(cat1);
-
-            Cat.PrintCat();
+            List<Cat>.Enumerator it = Cat.allCats.GetEnumerator();
+            while (it.MoveNext())
+                Console.WriteLine(it.Current);
 
         }
     }
     /* Добавьте свой код ниже */
     public class Cat()
     {
-        public static List<Cat> allCats;
-
-        public static void AddCat()
-        {
-            Cat cat = new Cat();
-            allCats.Add(cat);
-        }
-
-        public static void PrintCat()
-        {
-            List<Cat>.Enumerator it = Cat.allCats.GetEnumerator();
-            while (it.MoveNext())
-                Console.WriteLine(it.Current);
-
-        }
+        public static List<Cat> allCats = new List<Cat>();
     }
 
 }

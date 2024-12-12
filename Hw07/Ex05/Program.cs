@@ -22,7 +22,8 @@ namespace l7t5
 
             Cat cat1 = new Cat();
 
-            cat1.AddCat(cat1);
+            Cat.allCats.Add(cat1);
+
             Cat.PrintCat();
 
         }
@@ -32,8 +33,9 @@ namespace l7t5
     {
         public static List<Cat> allCats;
 
-        public void AddCat(Cat cat)
+        public static void AddCat()
         {
+            Cat cat = new Cat();
             allCats.Add(cat);
         }
 

@@ -29,7 +29,8 @@ namespace l7t12
                 Console.Write("Введите строку: ");
                 string word = Console.ReadLine();
 
-                if (!Equals(word, "конец"))
+                //if (!Equals(word, "конец"))
+                if (word != "конец")
                     listString.Add(word);
                 else isContinueWriting = false;
             }

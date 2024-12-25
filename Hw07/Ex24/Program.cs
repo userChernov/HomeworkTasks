@@ -26,12 +26,10 @@ namespace l7t24
         {
             Console.Clear();
             /* Добавьте свой код ниже */
-            Console.WriteLine(new DateTime(date1).ToString("d MMMM yyyy", CultureInfo.CreateSpecificCulture("ru-RU"))); // 07 мая 2018 г.
-            Console.WriteLine(new DateTime(date2).ToString("d MMMM yyyy", CultureInfo.CreateSpecificCulture("en-EN"))); // 01 may 2018
+            Console.WriteLine(new DateTime(date1).ToString("dd MMMM yyyy г.", CultureInfo.CreateSpecificCulture("ru-RU"))); // 07 мая 2018 г.
+            Console.WriteLine(new DateTime(date2).ToString("dd MMMM yyyy", CultureInfo.CreateSpecificCulture("en-EN"))); // 01 may 2018
 
-            // FAIL
-            //Console.WriteLine(new DateTime(date3).ToString("d t", CultureInfo.CreateSpecificCulture("ru-RU"))); // 01.08.2018 01:04:07
-            // FAIL
+            Console.WriteLine(new DateTime(date3).ToString("dd.mm.yyyy hh:mm:ss", CultureInfo.CreateSpecificCulture("ru-RU"))); // 01.08.2018 01:04:07
             
             Console.WriteLine(new DateTime(date4).ToString("T", CultureInfo.CreateSpecificCulture("ru-RU"))); // 17:30:30
             Console.WriteLine(new DateTime(date5).DayOfWeek); // Friday

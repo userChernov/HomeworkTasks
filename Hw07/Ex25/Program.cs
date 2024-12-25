@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,109 +42,93 @@ namespace l7t25
             /* Добавьте свой код ниже */
             Console.Clear();
 
-            string[] eventLog = new string[10];
-            string[][] newEventLog = new string[eventLog.Length][];
+            string[] eventLog = {
+                "1_message_StormRage_1_active",
+                "2_message_StormRage_2_active",
+                "3_request_Pepe_3_ok",
+                "4_request_Pepe_4_fail",
+                "5_message_Guffi_6_active",
+                "6_message_CatTim_10_ok",
+                "7_request_StormRage_7_fail",
+                "8_message_StormRage_8_active",
+                "9_request_Pepe_5_ok",
+                "10_message_Pepe_15_ok"
+            };
 
-            //EventLogGen(ref eventLog);
+            Dictionary<string, List<long>> messageTime = new Dictionary<string, List<long>>();
+            Dictionary<string, List<long>> requestTime = new Dictionary<string, List<long>>();
 
-            for (int i = 0; i < newEventLog.Length; i++)
+
+            for (int i = 0; i < eventLog.Length; i++)
             {
-                newEventLog[i] = eventLog[i].Split("_");
+                string[] parts = eventLog[i].Split("_");
+
+                if (parts.Length != 5)
+                    continue;
+
+                string eventType = parts[1];
+                string userName = parts[2];
+                long deltaTime = Convert.ToInt64(parts[3]);
+
+                switch (eventType)
+                {
+                    case "message":
+                        if (!messageTime.ContainsKey(userName))
+                            messageTime.Add(userName, new List<long>());
+
+                        messageTime[userName].Add(deltaTime);
+                        break;
+                    case "request":
+                        if (!requestTime.ContainsKey(userName))
+                            requestTime.Add(userName, new List<long>());
+
+                        requestTime[userName].Add(deltaTime);
+                        break;
+                }
             }
-                
-            foreach (var item in Program.allUsers)
+
+            foreach (var item in messageTime)
             {
-                string user = item.Key;
-                
-                List<long> messageTime = new List<long>();
-                List<long> requestTime = new List<long>();
+                string name = item.Key;
+                List<long> times = item.Value.OrderBy(x => x).ToList();
 
-                bool isSpamer = false;
-
-                for (int i = 0; i < newEventLog.Length; i++)
+                if (times.Count <2)
+                    continue;
+                    
+                for (int i = 0; i < times.Count - 1; i++)
                 {
-                    if ( newEventLog[i][2] == user && Equals( newEventLog[i][1], "message" ) )
+                    if (times[i + 1] - times[i] < 5)
                     {
-                        messageTime.Add( Convert.ToInt64(newEventLog[i][3]) );
-                    }
-                    else if ( newEventLog[i][2] == user && Equals( newEventLog[i][1], "reqest" ) )
-                    {
-                        requestTime.Add( Convert.ToInt64(newEventLog[i][3]) );
+                        Program.blockedUsers.Add(item.Key, Program.allUsers[item.Key]);
+                        break;
                     }
                 }
-
-                messageTime.Sort();
-                requestTime.Sort();
-
-                if (messageTime.Count > 1)
-                {
-                    for (int i = 0; i < messageTime.Count - 1; i++)
-                    {
-                        if ( Math.Abs( messageTime[i] - messageTime[i+1] ) <= 50000000 )
-                        {
-                            isSpamer = true;
-                        }
-                    }
-                }
-
-                if (requestTime.Count > 1)
-                {
-                    for (int i = 0; i < requestTime.Count - 1; i++)
-                    {
-                        if ( Math.Abs( requestTime[i] - requestTime[i+1] ) <= 20000000 )
-                        {
-                            isSpamer = true;
-                        }
-                    }
-                }
-
-                if (isSpamer)
-                {
-                    Program.blockedUsers.Add(item.Key, item.Value);
-                }
-                
             }
-            
+
+            foreach (var item in requestTime)
+            {
+                string name = item.Key;
+                List<long> times = item.Value.OrderBy(x => x).ToList();
+
+                if (times.Count <2)
+                    continue;
+                    
+                for (int i = 0; i < times.Count - 1; i++)
+                {
+                    if (times[i + 1] - times[i] < 2)
+                    {
+                        Program.blockedUsers.Add(item.Key, Program.allUsers[item.Key]);
+                        break;
+                    }
+                }
+            }
+
+            foreach (var item in Program.blockedUsers)
+            {
+                Console.WriteLine($"{item.Key}_{item.Value.Account}_{item.Value.Surname}_{item.Value.Name}_{item.Value.IP}");
+            }
+
         }
-
-        // private static void EventLogGen(ref string[] array)
-        // {
-        //     for (int i = 0; i < array.Length; i++)
-        //     {
-        //         array[i] = $"{i}_";
-        //     }
-        // }
-
-
-        // private static string EventGen()
-        // {
-        //     Random rand = new Random();
-        //     string userEvent = "";
-
-        //     switch (rand.Next(3))
-        //         {
-        //             case 0:
-        //                 userEvent = "message";
-        //                 break;
-        //             case 1:
-        //                 userEvent = "act";
-        //                 break;
-        //             case 2:
-        //                 userEvent = "request";
-        //                 break;
-        //         }
-
-        //     return userEvent;
-        // }
-
-        // private static int dateGen()
-        // {
-        //     int date = 0;
-        //     Random rand = new Random();
-
-        //     return date;
-        // }
-
     }
 
     public static class Program
@@ -175,5 +160,6 @@ namespace l7t25
             Surname = surname;
         }
     }
+    
 }
 

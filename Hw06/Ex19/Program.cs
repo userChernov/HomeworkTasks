@@ -37,13 +37,14 @@ namespace l6t19
             /* Добавьте свой код ниже */
             string[] arrayString = word.Split(' ');
             string sortString = "";
-            bool needSort = true;
 
             string buffer = "";
 
             for (int i = 0; i < arrayString.Length; i++)
             {
                 buffer = arrayString[i];
+                bool needSort = true;
+
 
                 for (int k = 0; k< buffer.Length; k++)
                 {

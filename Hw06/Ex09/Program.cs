@@ -24,23 +24,31 @@ namespace l6t9
     {
         public static void Main(string[] args)
         {
-            /* Добавьте свой код ниже */
-            Console.Write("Введите количество символов: ");
-            int l = Convert.ToInt32(Console.ReadLine());
+            // /* Добавьте свой код ниже */
+            // Console.Write("Введите количество символов: ");
+            // int l = Convert.ToInt32(Console.ReadLine());
             
-            Console.Write("Введите  Символ: ");
-            char s = Convert.ToChar(Console.ReadLine());
+            // Console.Write("Введите  Символ: ");
+            // char s = Convert.ToChar(Console.ReadLine());
 
-            CustomLine custom = new CustomLine(l, s);
+            // CustomLine custom = new CustomLine(l, s);
 
-            CustomLine.PrintLine();
+            // CustomLine.PrintLine();
+
+            CustomLine line1 = new CustomLine(10, '*');  
+            CustomLine line2 = new CustomLine(10, '8');  
+            CustomLine line3 = new CustomLine(10, '$');  
+
+            CustomLine.PrintLine(line1);  
+            CustomLine.PrintLine(line2);  
+            CustomLine.PrintLine(line3);  
         }
     }
 
     public struct CustomLine
     {
-        private static int length;
-        private static char symbol;
+        public int length;
+        public char symbol;
 
         public CustomLine(int l, char s)
         {
@@ -48,12 +56,12 @@ namespace l6t9
             symbol = s;
         }
 
-        public static void PrintLine()
+        public static void PrintLine(CustomLine data)
         {
 
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < data.length; i++)
             {
-                Console.Write(symbol);   
+                Console.Write(data.symbol);   
             }
             Console.WriteLine();
         }

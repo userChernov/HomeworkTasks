@@ -22,8 +22,16 @@ namespace l8t4
         {
             /* Добавьте свой код ниже */
 
-            objectList.Sort();
+            List<double> newList = new List<double>();
 
+            foreach (object obj in objectList)
+                newList.Add(Convert.ToDouble(obj));
+
+            newList.Sort();
+            objectList.Clear();
+
+            foreach (object obj in newList)
+                objectList.Add(obj);
 
             foreach (var item in objectList)
             {

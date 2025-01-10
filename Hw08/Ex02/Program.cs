@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,13 +19,26 @@ namespace l8t2
 
     public class Program
     {
-        public static ArrayList list = new ArrayList();
-
+        //public static ArrayList list = new ArrayList();
+        public static List<object> list = new List<object>();
 
         public static void Main(string[] args)
         {
             /* Добавьте свой код ниже */
 
+            for (int i = 0; i < 20; i++)
+            {
+                if (i % 5 == 0)
+                {
+                    Dog dog = new Dog($"{i}");
+                    list.Add(dog);
+                }
+                else
+                {
+                    Cat cat = new Cat($"{i}");
+                    list.Add(cat);
+                }
+            }
 
             foreach (var item in list)
             {

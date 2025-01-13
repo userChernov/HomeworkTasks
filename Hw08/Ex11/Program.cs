@@ -18,20 +18,26 @@ namespace l8t11
     {
         static Random r = new Random();
 
-
         public static void Main(string[] args)
         {
+            Console.Clear();
+
             for (int i = 0; i < 100; i++)
             {
                 PrivateDogBank.clients.Add(new BusinessCat(r.Next(200, 701)));
             }
             /* Добавьте свой код ниже */
 
-            // foreach (var item in PrivateDogBank.clients)
-            // {
-            //     Console.WriteLine(item);
-            //     BusinessCat temp = item;
-            // }
+            foreach (var item in PrivateDogBank.clients)
+            {
+                if (item.Money < PrivateDogBank.Condition)
+                    PrivateDogBank.clients.Remove(item);
+            }
+
+            foreach (var item in PrivateDogBank.clients)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 
@@ -47,6 +53,8 @@ namespace l8t11
     {
         private int money;
 
+        public int Money => money;
+        
 
         public BusinessCat(int money)
         {

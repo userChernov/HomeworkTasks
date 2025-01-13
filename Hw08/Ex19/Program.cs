@@ -37,7 +37,7 @@ namespace l8t19
             {
                 bool isSimple = true;
 
-                for (int j = 2; j < i; j++)
+                for (int j = 2; j <= Math.Sqrt(i); j++)
                 {
                     if (i % j == 0)
                     {

@@ -22,35 +22,57 @@ namespace l8t24
 
     public class PrivateCatBank
     {
+            public static int wallet = 500;
+            public static int getMoney = 300;
+            public static int setMoney = 198;
+            public static int cash = 0;
+            public static bool isCanGetmoney = true;
+
+            public static int combo1 = 300;
+            public static bool c1 = true;
+
+            public static int combo2 = 198;
+            public static bool c2 = true;
+
+            public static int combo3Reload = +198+198;
+            public static int testTick = 0;
+
+
         public static void Main(string[] args)
         {
+            
             /* Добавьте свой код ниже */
 
-            int wallet = 500;
-            int getMoney = 300;
-            int setMoney = 198;
-            int cash = 0;
-            bool isCanGetmoney = true;
-            
-            while (isCanGetmoney)
+            while (testTick < 300)
             {
-                if (wallet >= getMoney && wallet > 0)
-                {
-                    wallet -= getMoney;
-                    cash += getMoney;
-
-                    Console.WriteLine($"Wallet = {wallet}; Cash = {cash}");
-                }
-                else if (cash > setMoney && wallet > 0)
-                {
-                    wallet += setMoney;
-                    cash -= setMoney;
-                    Console.WriteLine($"Wallet = {wallet}; Cash = {cash}");
-                }
-                else isCanGetmoney = false;
+                Combo1();
+                Combo2();
+                testTick++;
             }
 
-            Console.WriteLine(cash);
         }
+
+        public static void Combo1()
+        {
+            if (wallet >= combo1)
+            {
+                wallet -= combo1;
+                cash += combo1;
+                Console.WriteLine($"# = {testTick};     Wallet = {wallet};     Cash = {cash}     -300");
+            }
+        }
+
+        public static void Combo2()
+        {
+            if (cash >= combo2)
+            {
+                cash -= combo2;
+                wallet += combo2;
+                Console.WriteLine($"# = {testTick};     Wallet = {wallet};     Cash = {cash}     +198");
+            }
+        }
+
+
+
     }
 }

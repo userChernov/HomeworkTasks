@@ -21,7 +21,8 @@ namespace l8t25
     public class RichCat
     {
         /* Добавьте свой код ниже */
-        public int Account { get; set; }
+        //private int account;
+        public int Account { get; private set; }
 
 
         public static void Main(string[] args)

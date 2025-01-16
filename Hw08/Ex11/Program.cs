@@ -28,11 +28,24 @@ namespace l8t11
             }
             /* Добавьте свой код ниже */
 
+            PrivateDogBank.clients.RemoveWhere(cat => cat.Money < PrivateDogBank.Condition);
+
+            HashSet<BusinessCat> listToRemove = new HashSet<BusinessCat>();
+            //HashSet<BusinessCat> listToRemove = PrivateDogBank.clients.Where(cat => cat.Money < PrivateDogBank.Condition).ToHashSet();
+            
             foreach (var item in PrivateDogBank.clients)
             {
-                if (item.Money < PrivateDogBank.Condition)
-                    PrivateDogBank.clients.Remove(item);
+                if (item.Money >= PrivateDogBank.Condition)
+                    listToRemove.Add(item);
             }
+
+            PrivateDogBank.clients = listToRemove;
+
+            // foreach (var item in listToRemove)
+            // {
+            //     PrivateDogBank.clients.Remove(item);
+            // }
+
 
             foreach (var item in PrivateDogBank.clients)
             {

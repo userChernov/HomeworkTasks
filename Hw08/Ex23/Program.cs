@@ -35,7 +35,7 @@ namespace l8t23
 
             for (int i = 0; i < arr.Length; i++)
             {
-                ElementCount(i, arr, out int count, out int firstIndex);
+                ElementCount(thisIndex: i, arr, out int count, out int firstIndex);
 
                 if (count > maxCount)
                 {
@@ -63,6 +63,8 @@ namespace l8t23
                 }
             }
         }
+
     }
+
 }
 

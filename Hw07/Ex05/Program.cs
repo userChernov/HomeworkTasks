@@ -23,19 +23,29 @@ namespace l7t5
             for (int i = 0; i < 10; i++)
             {
                 Cat cat = new Cat();
-                Cat.allCats.Add(cat);
             }
 
             List<Cat>.Enumerator it = Cat.allCats.GetEnumerator();
             while (it.MoveNext())
                 Console.WriteLine(it.Current);
 
+
+            // for (int i = 0; i < Cat.allCats.Count; i++)
+            // {
+            //     Console.WriteLine(Cat.allCats[i]);
+            // }
+
         }
     }
     /* Добавьте свой код ниже */
-    public class Cat()
+    public class Cat
     {
         public static List<Cat> allCats = new List<Cat>();
+
+        public Cat()
+        {
+            allCats.Add(this);
+        }
     }
 
 }

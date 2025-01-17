@@ -36,13 +36,7 @@ namespace l7t4
                     }    
                 }
                 
-                if (isEqual)
-                {
-                    arrayList.RemoveAt(i);
-                    isEqual = false;
-                }
-                else
-                    i++;
+                i++;
             }
 
             arrayList.Sort();

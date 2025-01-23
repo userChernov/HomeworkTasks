@@ -23,19 +23,23 @@ namespace l7t16
             int midleValue = 0;
             HashSet<int> localset = set;
 
-            foreach (var item in localset)
+            foreach (var item in set)
             {
                 midleValue += item;
             }
-            midleValue /= localset.Count;
+            midleValue /= set.Count;
 
-            foreach (var item in localset)
+            Console.WriteLine($"Среднее арифметическое = {midleValue}");
+
+            foreach (var item in set)
             {
                 if (item >= midleValue)
                     localset.Remove(item);
             }
 
-            foreach (var item in localset)
+            set = localset;
+
+            foreach (var item in set)
                 Console.WriteLine(item);
         }
     }

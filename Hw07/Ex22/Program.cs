@@ -21,13 +21,16 @@ namespace l7t22
             Console.WriteLine(GetSeconds(now, now.Add(new TimeSpan(10000))));
             Console.WriteLine(GetSeconds(now, now.Add(new TimeSpan(20000))));
             Console.WriteLine(GetSeconds(now, now.Add(new TimeSpan(50000))));
+
+            Console.WriteLine(GetSeconds(now, now.AddMilliseconds(100)));
         }
 
         public static long GetSeconds(DateTime dateA, DateTime dateB)
         {
             /* Добавьте свой код ниже */
+            long seconds = Convert.ToInt64((dateB - dateA).TotalMilliseconds);
             
-            return (dateB - dateA).Milliseconds;
+            return seconds;
         }
     }
 }

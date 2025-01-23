@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,8 @@ namespace l7t23
         public static void FindDay(DateTime date)
         {
             /* Добавьте свой код ниже */
+            CultureInfo en = new CultureInfo("en-EN");
+
             Console.WriteLine((date.AddDays(33)).DayOfWeek);
 
         }

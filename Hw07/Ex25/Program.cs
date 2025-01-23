@@ -97,7 +97,7 @@ namespace l7t25
                     
                 for (int i = 0; i < times.Count - 1; i++)
                 {
-                    if (times[i + 1] - times[i] < 5)
+                    if ((times[i + 1] - times[i] < 5) && (!Program.blockedUsers.ContainsKey(item.Key)))
                     {
                         Program.blockedUsers.Add(item.Key, Program.allUsers[item.Key]);
                         break;
@@ -115,7 +115,7 @@ namespace l7t25
                     
                 for (int i = 0; i < times.Count - 1; i++)
                 {
-                    if (times[i + 1] - times[i] < 2)
+                    if ((times[i + 1] - times[i] < 2) && (!Program.blockedUsers.ContainsKey(item.Key)))
                     {
                         Program.blockedUsers.Add(item.Key, Program.allUsers[item.Key]);
                         break;
@@ -125,7 +125,7 @@ namespace l7t25
 
             foreach (var item in Program.blockedUsers)
             {
-                Console.WriteLine($"{item.Key}_{item.Value.Account}_{item.Value.Surname}_{item.Value.Name}_{item.Value.IP}");
+                Console.WriteLine($"{item.Key}_{item.Value.Surname}_{item.Value.Name} - {item.Value.IP}");
             }
 
         }

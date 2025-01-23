@@ -35,13 +35,13 @@ namespace l7t19
 
             }
 
-            foreach (var item in myCats)
-                Console.WriteLine(item);
+            // foreach (var item in myCats)
+            //     Console.WriteLine(item);
 
-            Console.WriteLine();
+            // Console.WriteLine();
 
             foreach (var item in myUnicCats)
-                Console.WriteLine(item);
+                Console.WriteLine(item.Value);
 
         }
     }

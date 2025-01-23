@@ -22,33 +22,75 @@ namespace l7t8
             /* Добавьте свой код ниже */
             string item;
 
-            for (int i = 0; i < list.Count; i++)
+            List<string> correctList = new List<string>();
+
+
+            foreach (string word in list)
             {
-                if (list[i].Contains('Т') || list[i].Contains('т'))
-                {
-                    list.RemoveAt(i);
-                }
-                if (list[i].Contains('Б') || list[i].Contains('б'))
-                {
-                    list[i] = list[i].ToUpper();
-                }
-                if (list[i].Contains('Р') || list[i].Contains('р'))
-                {
-                    char[] letters = list[i].ToCharArray();
+                string element = word;
+                bool shouldWeAdd = true;
 
-                    for (int j = 0; j < letters.Length; j++)
+                if (element.Contains('Т') || element.Contains('т'))
+                {
+                    shouldWeAdd = false;
+                }
+                else
+                {
+                    if (element.Contains('Б') || element.Contains('б'))
                     {
-                        if (letters[j] == 'Р')
-                            letters[j] = 'Л';
-                        if (letters[j] == 'р')
-                            letters[j] = 'л';
+                        element = element.ToUpper();
                     }
+                    if (element.Contains('Р') || element.Contains('р'))
+                    {
+                        char[] letters = element.ToCharArray();
 
-                    list[i] = new string(letters);
+                        for (int i = 0; i < letters.Length; i++)
+                        {
+                            if (letters[i] == 'Р')
+                                letters[i] = 'Л';
+                            if (letters[i] == 'р')
+                                letters[i] = 'л';
+                        }
+
+                        element = new string(letters);
+                    }
                 }
+
+                if (shouldWeAdd)
+                    correctList.Add(element);
+                
             }
 
-            foreach (var str in list)
+
+            // for (int i = 0; i < list.Count; i++)
+            // {
+            //     if (list[i].Contains('Т') || list[i].Contains('т'))
+            //     {
+            //         list.RemoveAt(i);
+            //     }
+            //     if (list[i].Contains('Б') || list[i].Contains('б'))
+            //     {
+            //         list[i] = list[i].ToUpper();
+            //     }
+            //     if (list[i].Contains('Р') || list[i].Contains('р'))
+            //     {
+            //         char[] letters = list[i].ToCharArray();
+
+            //         for (int j = 0; j < letters.Length; j++)
+            //         {
+            //             if (letters[j] == 'Р')
+            //                 letters[j] = 'Л';
+            //             if (letters[j] == 'р')
+            //                 letters[j] = 'л';
+            //         }
+
+            //         list[i] = new string(letters);
+            //     }
+            // }
+
+
+
+            foreach (var str in correctList)
             {
                 Console.WriteLine(str);
             }

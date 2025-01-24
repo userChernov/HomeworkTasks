@@ -26,7 +26,7 @@ namespace l8t1
 
             for (int i = 0; i < 10; i++)
             {
-                if ( i % 2 == 0 )
+                if ( i % 2 != 0 )
                     list.Add(new Cat($"Котик №{i}"));
                 else
                     list.Add(new Dog($"Пес №{i}"));

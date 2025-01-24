@@ -39,7 +39,7 @@ namespace l8t12
             {
                 for (int j = 0; j < dogClientList.Count - i - 1; j++)
                 {
-                    if (dogClientList[j].Age > dogClientList[j + 1].Age)
+                    if (dogClientList[j].Age < dogClientList[j + 1].Age)
                     {
                         TwoClientChange(j);
                     }

@@ -29,7 +29,7 @@ namespace l7t23
             /* Добавьте свой код ниже */
             CultureInfo en = new CultureInfo("en-EN");
 
-            Console.WriteLine((date.AddDays(33)).DayOfWeek);
+            Console.WriteLine((date.AddDays(33).ToString("dddd", CultureInfo.InvariantCulture)));
 
         }
     }

@@ -31,7 +31,7 @@ namespace l9t6
                 StackTrace current = new StackTrace();
                 StackFrame frame = current.GetFrame(current.FrameCount - 1);
 
-                Console.WriteLine($"Возникло исключение из namespace: {frame.GetMethod().DeclaringType.Namespace}! Имя исключения: {ex.Message}.");
+                Console.WriteLine($"Возникло исключение из namespace: {frame.GetMethod().DeclaringType.Namespace}! Имя исключения: {ex.GetType()}.");
             }
 
         }

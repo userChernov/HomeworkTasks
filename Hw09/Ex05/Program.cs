@@ -25,7 +25,7 @@ namespace l9t5
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.GetType());
             }
 
         }

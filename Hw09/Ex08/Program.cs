@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace l9t7
+namespace l9t8
 {
     /*
-     * Внутри метода Main() спровоцировано возникновение исключения. Это одно из самых раздражающих исключений, которое может возникнуть.
+     * Внутри метода Main() спровоцировано возникновение исключения.
      * Перехватите исключение и выведите на экран сведения о нём в следующем формате:
-     * "Exception message: ХХХ! Exception name: XXX.", где ХХХ - соответствующие сведения о возникшем исключении.
+     * "Exception name: XXX! Exception message: ХХХ...", где ХХХ - соответствующие сведения о возникшем исключении.
      * Шаблон задачи изменять нельзя.
      */
 
@@ -22,12 +22,12 @@ namespace l9t7
 
             try
             {
-                int[] arr = new int[] { 10, 11, 12, 123, 5 };
-                Console.WriteLine(arr[1000]);
+                List<int> list = new List<int>() { 1, 2, 3, 4, 5 };
+                Console.WriteLine(list[17]);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Exception message: {ex.Message}! Exception name: {ex.GetType().Name}.");
+                Console.WriteLine($"Exception name: {ex.GetType().Name}! Exception message: {ex.Message}...");
             }
         }
     }

@@ -20,27 +20,29 @@ namespace l9t11
             int a = 10;
             int b = 0;
 
-            double result = DivisionBy(a, b);
+            try
+            {
+                double result = DivisionBy(a, b);
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-            Console.WriteLine(result);
+            Console.ReadLine();
 
         }
 
         public static double DivisionBy(int a, int b)
         {
-            double result;
-
-            try
+            if (b == 0)
             {
-                result = a / b;
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine($"Ошибка исключения {ex.GetType().Name}. Сообщение: {ex.Message}");
-                result = 0;
+                //throw new DivideByZeroException("Ошибка деления на 0");
+                DivideByZeroException qq = new DivideByZeroException("11");
+                throw qq;
             }
 
-            return result;
+            return a / b;
 
         }
     }

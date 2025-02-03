@@ -29,9 +29,10 @@ namespace l9t6
             catch (Exception ex)
             {
                 StackTrace current = new StackTrace();
-                StackFrame frame = current.GetFrame(current.FrameCount - 1);
+                Console.WriteLine(current.FrameCount - 1);
+                StackFrame frame = current.GetFrame(0);
 
-                Console.WriteLine($"Возникло исключение из namespace: {frame.GetMethod().DeclaringType.Namespace}! Имя исключения: {ex.GetType()}.");
+                Console.WriteLine($"Возникло исключение из namespace: {ex.GetType().Namespace}! Имя исключения: {ex.GetType().Name}.");
             }
 
         }

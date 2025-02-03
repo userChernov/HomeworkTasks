@@ -21,9 +21,9 @@ namespace l9t14
 
             DateTime date;
 
-            date = Convert.ToDateTime(Console.ReadLine());
+            DateTime.TryParse(Console.ReadLine(), out date);
 
-            Console.WriteLine(date.ToString("dd/MM/YYYY HH:MM:SS"));
+            Console.WriteLine(date.ToString("dd/mm/yyyy HH:MM:SS"));
         }
     }
 }

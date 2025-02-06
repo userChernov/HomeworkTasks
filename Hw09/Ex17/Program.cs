@@ -25,6 +25,52 @@ namespace l9t17
         public static void Main(string[] args)
         {
             /* Добавьте свой код ниже */
+            Console.Write("Введите количество собак: ");
+            int count = Convert.ToInt32(Console.ReadLine());
+
+            Dictionary<int, Dog> myDogs = Dog.GetDogDictionary(count);
+
+            foreach (KeyValuePair<int, Dog> pair in myDogs)
+            {
+                Console.WriteLine($"ID:{pair.Key} , Content: {pair.Value}");
+            }
+        }
+    }
+
+    public class Dog
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+
+        public Dog(int Id)
+        {
+            this.Id = Id;
+        }
+
+        public static Dictionary<int, Dog> GetDogDictionary(int count)
+        {
+            Dictionary<int, Dog> DogDictionary = new Dictionary<int, Dog>();
+            Random rand = new Random();
+
+            int i = 0;
+            while (i < count)
+            {
+                int tempId = rand.Next();
+
+                if (DogDictionary.ContainsKey(tempId))
+                    continue;
+
+                DogDictionary[tempId] = new Dog(tempId);
+                i++; 
+
+            }
+            
+            return DogDictionary;
+        }
+
+        public override string ToString()
+        {
+            return $"Я красивая собачка и мой id={this.Id}";
         }
     }
 }

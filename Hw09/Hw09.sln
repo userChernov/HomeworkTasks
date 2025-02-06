@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex24", "Ex24\Ex24.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex25", "Ex25\Ex25.csproj", "{8C2604D1-203D-4B36-9928-A52C670C8A59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex26", "Ex26\Ex26.csproj", "{AB2933E7-2A37-4E36-A0F2-D6CDBE50589E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -162,5 +164,9 @@ Global
 		{8C2604D1-203D-4B36-9928-A52C670C8A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C2604D1-203D-4B36-9928-A52C670C8A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C2604D1-203D-4B36-9928-A52C670C8A59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB2933E7-2A37-4E36-A0F2-D6CDBE50589E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB2933E7-2A37-4E36-A0F2-D6CDBE50589E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB2933E7-2A37-4E36-A0F2-D6CDBE50589E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB2933E7-2A37-4E36-A0F2-D6CDBE50589E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

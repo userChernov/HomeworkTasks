@@ -27,7 +27,7 @@ namespace l7t18
         {
             /* Добавьте свой код ниже */
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
                 string surname;
                 string name;
@@ -41,44 +41,41 @@ namespace l7t18
                 users.Add(surname, name);
             }
 
-            GetStatistic(users);
+
+            List<string> result = GetStatistic(users);
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         public static List<string> GetStatistic(Dictionary<string, string> users)
         {
-            List<string> names = new List<string>();
-            List<string> statisticNames = new List<string>();
+            Dictionary<string, int> namesCount = new Dictionary<string, int>();
 
-            foreach (var item in users)
-                names.Add(item.Value);
-
-            names.Sort();
-
-            int count = 1;
-
-            for (int i = 0; i < names.Count; i++)
+            foreach (KeyValuePair<string, string> entry in users)
             {
-                if (i == names.Count - 1)
-                    count = 1;
-                else
+                string name = entry.Value;
+
+                if (namesCount.Keys.Contains(name)) 
                 {
-                    if ( Equals(names[i], names[i+1]) )
-                        count++;
-                    else
-                    {
-                        statisticNames.Add($"{names[i]} - {count} повторений");
-                        count = 1;
-                    }
+                    namesCount[name]++;
+                }
+                else 
+                {
+                    namesCount[name] = 1;
                 }
             }
 
-            foreach (var item in statisticNames)
+            List<string> statisticNames = new List<string>();
+
+            foreach (KeyValuePair<string, int> item in namesCount)
             {
-                Console.WriteLine(item);
+                statisticNames.Add($"{item.Key} - {item.Value} повторений");
             }
 
             return statisticNames;
         }
     }
 }
-

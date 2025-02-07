@@ -65,7 +65,7 @@ namespace l9t23
 
 
 
-            while (isZero ||)
+            while (isZero)
             {
                 b = Convert.ToInt32(Console.ReadLine());
                 

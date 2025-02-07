@@ -58,7 +58,7 @@ namespace l8t25
 
             foreach (var item in cats)
             {  
-                if (item.Account > maxValue)
+                if (Math.Abs(item.Account) > maxValue)
                 {
                     maxValue = item.Account;
                 }

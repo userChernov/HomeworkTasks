@@ -25,58 +25,35 @@ namespace l9t23
         public static void Main(string[] args)
         {
             /* Добавьте свой код ниже */
-            bool isZero = true;
-            bool isIncorrect = true;
-            int a = 0;
-            int b = 0;
-            string data = "0123456789";
-
             Console.Clear();
-            Console.Write("Введите первое число: ");
+            int a;
+            int b;
 
-            while (isIncorrect)
+            Console.Write("Введите первое число: ");
+            while (true)
             {
-                bool dataContains = true;
                 string s = Console.ReadLine();
 
-                for (int i = 0; i < s.Length; i++)
-                {
-                    if (!data.Contains(s[i]))
-                    {
-                        dataContains = false;
-                        break;
-                    }
-                }
-
-                if (dataContains)
-                {
-                    a = Convert.ToInt32(s);
-                    isIncorrect = false;
-                }
-                else
-                {
+                if (!Int32.TryParse(s, out a))
                     Console.Write("Введенное значение не является числом. Пожалуйста введите число: ");
-                }
-
-            }
-           
-            isIncorrect = true;
-            Console.Write("Введите второе число: ");
-
-
-
-            while (isZero)
-            {
-                b = Convert.ToInt32(Console.ReadLine());
-                
-                if (b != 0)
-                    isZero = false;
                 else
-                    Console.Write("Делить на ноль НЕЛЬЗЯ!!! Пожалуйста введите другое число: ");
+                    break;
             }
 
+            Console.Write("Введите второе число: ");
+            while (true)
+            {
+                string s = Console.ReadLine();
 
-            Console.WriteLine(DivisionBy(a, b));
+                if (!Int32.TryParse(s, out b))
+                    Console.Write("Введенное значение не является числом. Пожалуйста введите число: ");
+                else if (b == 0)
+                    Console.Write("Делить на ноль НЕЛЬЗЯ!!! Пожалуйста введите другое число: ");
+                else
+                    break;
+            }
+
+            Console.WriteLine($"a / b = {DivisionBy(a, b)}");
         }
 
         public static int DivisionBy(int a, int b)
@@ -84,6 +61,5 @@ namespace l9t23
             /* Добавьте свой код ниже */
             return a / b;
         }
-
     }
 }

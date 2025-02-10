@@ -30,39 +30,40 @@ namespace l8t23
 
         public static int GetMostCommonElement(string[] arr)
         {
+            Dictionary<string, int> elements = new Dictionary<string, int>();
             int maxCount = 0;
+            string maxLetter = "";
             int index = 0;
 
             for (int i = 0; i < arr.Length; i++)
             {
-                ElementCount(thisIndex: i, arr, out int count, out int firstIndex);
+                if (elements.ContainsKey(arr[i]))
+                    elements[arr[i]]++;
+                else
+                    elements[arr[i]] = 1;
+            }
 
-                if (count > maxCount)
+            foreach (KeyValuePair<string, int> letter in elements)
+            {
+                if (letter.Value > maxCount)
                 {
-                    maxCount = count;
-                    index = firstIndex;
+                    maxCount = letter.Value;
+                    maxLetter = letter.Key;
+                }
+            }
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == maxLetter)
+                {
+                    index = i;
+                    break;
                 }
             }
 
             return index;
         }
 
-        private static void ElementCount(int thisIndex, string[] arr, out int count, out int firstIndex)
-        {
-            count = 0;
-            firstIndex = 0;
-
-            for (int i = thisIndex + 1; i < arr.Length; i++)
-            {
-                if (arr[i] == arr[thisIndex])
-                {
-                    count += 1;
-
-                    if (firstIndex == 0)
-                        firstIndex = thisIndex;
-                }
-            }
-        }
 
     }
 

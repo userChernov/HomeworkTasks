@@ -16,6 +16,10 @@ namespace l10t1
         public static void Main(string[] args)
         {
             /* Добавьте свой код ниже */
+            var x = 300;
+            var y = "КРАСОТА";
+
+            Console.WriteLine(x + y);
         }
     }
 }

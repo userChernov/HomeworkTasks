@@ -50,21 +50,23 @@ namespace l10t18
                 {
                     returnString += symbols.Pop();
                 }
+
+                // return new string(s.Reverse().ToArray());
             }
             else if (s.Length % 2 == 0)
             {
-                List<char> symbols = new List<char>();
-                symbols.Add(' ');
+                char[] symbols = s.ToArray();
 
-                for (int i = 1; i <= s.Length; i++)
+                for (int i = 0; i < symbols.Length - 1; i += 2)
                 {
-                    symbols.Add(s[i - 1]);
+                    // char temp = symbols[i];
+                    // symbols[i] = symbols[i + 1];
+                    // symbols[i + 1] = temp;
+
+                    (symbols[i], symbols[i + 1]) = (symbols[i + 1], symbols[i]);
                 }
 
-                for (int i = 1; i < symbols.Count; i++)
-                {
-                    returnString += symbols[i];
-                }
+                returnString = new string(symbols);
             }
 
             return returnString;
